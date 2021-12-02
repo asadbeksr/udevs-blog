@@ -1,0 +1,22 @@
+.menu-btns {
+  margin-top: 30px;
+}
+.menu-btns button {
+  font-size: 18px;
+  margin-top: 7px;
+  margin-left: 20px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.menu-btns button:active {
+  background-color: #1b5bf7;
+  color: #ffffff;
+}
+
+.active-btn {
+  background-color: #1b5bf7 !important;
+  color: #ffffff !important;
+}

@@ -1,0 +1,24 @@
+.single-history {
+  margin-right: 20px;
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+  background: rgb(255, 208, 107);
+  background: linear-gradient(
+    245deg,
+    rgba(255, 208, 107, 1) 0%,
+    rgba(252, 77, 130, 1) 100%
+  );
+}
+
+.img-wrap img {
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  border: solid 7px #fff;
+  position: absolute;
+  background-repeat: no-repeat;
+  margin-left: 8px;
+  margin-top: 8px;
+  object-fit: cover;
+}
