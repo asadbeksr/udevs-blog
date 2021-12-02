@@ -1,0 +1,19 @@
+.single-blog-wrap {
+  margin-left: 20px;
+  margin-top: 40px;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.blog-time-stats {
+  font-family: "Roboto", sans-serif !important;
+  margin-top: 10px;
+  color: #aebec9;
+}
+.single-blog-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+}
