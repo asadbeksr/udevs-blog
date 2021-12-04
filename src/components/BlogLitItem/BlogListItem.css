@@ -1,11 +1,10 @@
 .single-blog-wrap {
-  margin-left: 20px;
   margin-top: 40px;
+  margin-left: 20px;
   width: 350px;
   height: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
+  border-radius: 8px;
+  display: block;
 }
 
 .blog-time-stats {
@@ -16,4 +15,60 @@
 .single-blog-title {
   font-family: "Nunito", sans-serif;
   font-size: 18px;
+}
+.single-blog-img {
+  width: 350px;
+  height: 300px;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 846px) {
+  .single-blog-wrap {
+    width: 350px;
+    height: 300px;
+    display: flex;
+  }
+  .single-post-info {
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+
+  .single-blog-title {
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+    padding-right: 60px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .single-blog-wrap {
+    width: 350px;
+    height: 400px;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .single-blog-title {
+    margin: 0;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .single-blog-wrap {
+    width: 350px;
+    height: 400px;
+    border-radius: 8px;
+    display: block;
+  }
+  .single-blog-img {
+    width: 330px;
+    height: 280px;
+    border-radius: 8px;
+  }
+  .single-post-info {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
