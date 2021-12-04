@@ -9,7 +9,12 @@ export default function Header() {
       <div className="wrap">
         <img src={UdevsLogo} width="130" alt="udevs-logo-icon" />
         <div className="left-nav">
-          <img src={Notifications} width="25" alt="notification-icon" />
+          <img
+            className="not-icon"
+            src={Notifications}
+            width="25"
+            alt="notification-icon"
+          />
           <img
             className="count-notification"
             src={CountNot}

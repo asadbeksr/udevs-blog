@@ -1,9 +1,6 @@
 .wrap {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 1920px;
-  padding-right: 204px;
-  padding-left: 204px;
+  padding-right: 13%;
+  padding-left: 10%;
   padding-top: 15px;
   display: flex;
   align-items: center;
@@ -31,4 +28,12 @@
 .count-notification {
   position: relative;
   transform: translateX(-12px) translateY(-2px);
+}
+@media screen and (max-width: 450px) {
+  .not-icon {
+    display: none;
+  }
+  .count-notification {
+    display: none;
+  }
 }
