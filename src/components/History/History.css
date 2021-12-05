@@ -1,12 +1,24 @@
 .history-wrap {
-  margin: 40px 0 0 20px;
+  margin: 40px -20px 0 -25px;
 }
 .history-title {
   font-weight: 700;
   font-size: 34px;
+  margin-left: 40px;
 }
 .histories {
+  cursor: grab;
   margin-top: 40px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 20px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }

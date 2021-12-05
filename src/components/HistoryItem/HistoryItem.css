@@ -1,24 +1,43 @@
-.single-history {
-  margin-right: 20px;
-  width: 154px;
-  height: 154px;
+.his-pic {
+  cursor: pointer;
   border-radius: 50%;
-  background: rgb(255, 208, 107);
+  object-fit: cover;
+  width: 124px;
+  height: 124px;
+}
+.border-wrap {
+  margin-left: 20px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  color: #fff;
+  background-clip: padding-box;
+  border: solid 10px transparent;
+}
+.border-wrap:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -7px;
+  border-radius: 100%;
   background: linear-gradient(
     245deg,
     rgba(255, 208, 107, 1) 0%,
     rgba(252, 77, 130, 1) 100%
   );
 }
-
-.img-wrap img {
-  width: 124px;
-  height: 124px;
+.border-wrap-white {
+  display: flex;
   border-radius: 50%;
-  border: solid 7px #fff;
-  position: absolute;
-  background-repeat: no-repeat;
-  margin-left: 8px;
-  margin-top: 8px;
-  object-fit: cover;
+  align-items: center;
+
+  color: #fff;
+  background-clip: padding-box;
+  border: solid 8px #fff;
 }
