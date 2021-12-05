@@ -42,12 +42,13 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 620px) {
   .single-blog-wrap {
     width: 350px;
     height: 400px;
     border-radius: 8px;
     display: block;
+    margin-left: 0px;
   }
 
   .single-blog-title {
@@ -61,6 +62,7 @@
     height: 400px;
     border-radius: 8px;
     display: block;
+    margin-left: 0px;
   }
   .single-blog-img {
     width: 330px;
@@ -68,7 +70,6 @@
     border-radius: 8px;
   }
   .single-post-info {
-    margin-left: 0;
     margin-top: 10px;
   }
 }
