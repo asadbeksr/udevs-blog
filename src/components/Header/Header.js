@@ -7,7 +7,12 @@ export default function Header() {
   return (
     <div className="header">
       <div className="wrap">
-        <img src={UdevsLogo} width="130" alt="udevs-logo-icon" />
+        <img
+          src={UdevsLogo}
+          width="130"
+          alt="udevs-logo-icon"
+          className="logo-icon"
+        />
         <div className="left-nav">
           <img
             className="not-icon"
