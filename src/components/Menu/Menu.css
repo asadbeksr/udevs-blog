@@ -21,3 +21,23 @@
   background-color: #1b5bf7 !important;
   color: #ffffff !important;
 }
+.second-menu-btns button {
+  font-size: 18px;
+  margin-top: 7px;
+  margin-left: 20px;
+  background-color: transparent;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.second-menu-btns button:active {
+  background-color: #1b5bf7;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 1588px) {
+  .second-menu-btns {
+    display: none;
+  }
+}
