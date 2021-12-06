@@ -1,8 +1,7 @@
 import React from "react";
 import "./Header.css";
 import UdevsLogo from "../../assets/udevs-logo.svg";
-import Notifications from "../../assets/notifications.svg";
-import CountNot from "../../assets/num1.svg";
+import "../Menu/Menu.css";
 import { Link } from "react-router-dom";
 export default function Header() {
   return (
@@ -16,19 +15,16 @@ export default function Header() {
             className="logo-icon"
           />
         </Link>
+        <div className="second-menu-btns">
+          <button>Вес потоки</button>
+          <button>Разработка</button>
+          <button>Администрирование</button>
+          <button>Дизайн</button>
+          <button>Менеджмент</button>
+          <button>Маркетинг</button>
+          <button>Научпоп</button>
+        </div>
         <div className="left-nav">
-          <img
-            className="not-icon"
-            src={Notifications}
-            width="25"
-            alt="notification-icon"
-          />
-          <img
-            className="count-notification"
-            src={CountNot}
-            width="28"
-            alt="new-notification-icon"
-          />
           <button>Войти</button>
         </div>
       </div>
