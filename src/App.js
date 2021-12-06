@@ -1,20 +1,15 @@
-import "./App.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import BlogList from "./components/BlogList/BlogList";
-import Menu from "./components/Menu/Menu";
-import History from "./components/History/History";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Blogs from "./pages/Blogs";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <>
-      <Header />
-      <div className="app-wrap">
-        <Menu />
-        <History />
-        <BlogList />
-      </div>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/post/:id" element={<Blogs />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
