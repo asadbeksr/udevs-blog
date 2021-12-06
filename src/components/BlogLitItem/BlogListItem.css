@@ -37,7 +37,7 @@
     font-family: "Nunito", sans-serif;
     font-size: 18px;
     margin-top: 50px;
-    padding-right: 60px;
+    padding-right: 70px;
     width: 100%;
   }
 }
@@ -54,6 +54,9 @@
   .single-blog-title {
     margin: 0;
     padding: 0;
+  }
+  .single-post-info {
+    margin-top: 10px;
   }
 }
 @media screen and (max-width: 400px) {
