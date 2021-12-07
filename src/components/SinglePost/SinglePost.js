@@ -30,7 +30,7 @@ export default function SinglePost() {
     <div className="single-post-wrap">
       <Profile />
       <div className="main-post">
-        <img src={postPic} alt="single-post-pic" />
+        <img src={postPic} alt="single-post-pic" className="single-post-pic" />
         <p className="photo-by">Фото: Dilorom Alieva</p>
         <div className="blog-time-stats">
           <span>
@@ -44,7 +44,7 @@ export default function SinglePost() {
             </p>
           </span>
         </div>
-        <h1 className="main-post-title">{posts.title}</h1>
+        <h1 className="main-post-title"> {posts.title}</h1>
         <p className="p-body"> {posts.body}</p>
       </div>
       <div className="best-posts-wrap">

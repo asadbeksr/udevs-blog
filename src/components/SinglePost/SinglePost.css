@@ -1,5 +1,6 @@
 .main-post {
-  margin-right: 50px;
+  margin-right: 15px;
+  float: left;
 }
 
 .single-post-wrap {
@@ -63,10 +64,9 @@
   margin: 7px 20px 15px 0;
 }
 .profile-wrap {
-  margin: 0 0 10px 50px;
   display: flex;
   align-items: center;
-  align-self: baseline;
+  margin: 0 auto;
   flex-direction: column;
 }
 .profile-wrap img {
@@ -79,4 +79,5 @@
   font-weight: 300;
   text-align: start;
   max-width: 869px;
+  margin-bottom: 25px;
 }
