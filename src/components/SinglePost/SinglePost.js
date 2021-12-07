@@ -16,16 +16,18 @@ export default function SinglePost() {
   const { id } = useParams();
   useEffect(() => {
     getPosts();
-  }, []);
+  });
 
   function getPosts() {
     axios
       .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then(({ data }) => {
         setPosts(data);
+        console.log(data);
       })
       .catch((error) => console.log(error));
   }
+
   return (
     <div className="single-post-wrap">
       <Profile />
