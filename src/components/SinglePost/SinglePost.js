@@ -10,6 +10,8 @@ import BestPosts from "./aside/BestPosts";
 import postPic from "../../assets/PostPic.png";
 import ViewIcon from "../../assets/view-icon.svg";
 import ProfilePic from "../../assets/ProfilePic.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 
 export default function SinglePost() {
   const [posts, setPosts] = useState([]);
@@ -32,7 +34,12 @@ export default function SinglePost() {
     <div className="single-post-wrap">
       <Profile />
       <div className="main-post">
-        <img src={postPic} alt="single-post-pic" className="single-post-pic" />
+        <LazyLoadImage
+          src={postPic}
+          alt="single-post-pic"
+          className="single-post-pic"
+          effect="opacity"
+        />
         <p className="photo-by">Фото: Dilorom Alieva</p>
         <div className="blog-time-stats">
           <span>
@@ -64,7 +71,8 @@ export default function SinglePost() {
 function Profile() {
   return (
     <div className="profile-wrap">
-      <img src={ProfilePic} alt="profile-pic" />
+      <LazyLoadImage src={ProfilePic} alt="profile-pic" effect="opacity" />
+
       <h2>Dilorom Alieva</h2>
       <div className="profile-btns">
         <button>Follow</button>

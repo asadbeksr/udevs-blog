@@ -1,15 +1,16 @@
 import React from "react";
 import SingleBlogPic3 from "../../../assets/photo-3.png";
-
 import ViewIcon from "../../../assets/view-icon.svg";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 export default function BestPosts() {
   return (
     <div className="wrap-post">
-      <img
+      <LazyLoadImage
         className="best-single-blog-img"
         src={SingleBlogPic3}
         alt="blog-pic"
+        effect="opacity"
       />
       <div className="single-post-info">
         <h2 className="single-blog-title">
