@@ -6,6 +6,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function BlogListItem(props) {
+  if (props.loading) {
+    return <h2>Loading...</h2>;
+  }
   return (
     <div className="single-blog-wrap">
       <Link to={`/post/${props.id}`}>
