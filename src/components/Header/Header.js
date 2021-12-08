@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import UdevsLogo from "../../assets/udevs-logo.svg";
 import Notifications from "../../assets/notifications.svg";
 import CountNot from "../../assets/num1.svg";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+
 export default function Header() {
+  const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const isAuthorized = localStorage.getItem("isAuthorized");
+
+  function onSubmit(event) {
+    event.preventDefault();
+    const key = {
+      email: "udevs@gmail.com",
+      password: "udevs",
+    };
+    if (key.email === email && key.password === password) {
+      localStorage.setItem("isAuthorized", true);
+      setOpen(false);
+    } else {
+      alert("Incorrect Password or Email");
+    }
+  }
+
   return (
     <div className="header">
       <div className="wrap">
@@ -29,8 +51,47 @@ export default function Header() {
             width="28"
             alt="new-notification-icon"
           />
-          <button>Войти</button>
+          {isAuthorized && (
+            <button
+              onClick={() => {
+                localStorage.removeItem("isAuthorized");
+                window.location.reload(false);
+              }}
+              id="logut-btn"
+            >
+              Выйти
+            </button>
+          )}{" "}
+          {!isAuthorized && (
+            <button onClick={() => setOpen(true)} id="login_btn">
+              Войти
+            </button>
+          )}
         </div>
+        <div className={`modal ${open ? "visible" : ""}`}>
+          <button id="close" onClick={() => setOpen(false)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <h1>Вход на udevs news</h1>
+          <form onSubmit={onSubmit}>
+            <input
+              onChange={(event) => setEmail(event.target.value)}
+              type="text"
+              name="email"
+              placeholder="Email"
+            />
+            <input
+              onChange={(event) => setPassword(event.target.value)}
+              type="password"
+              name="password"
+              placeholder="Пароль"
+            />
+            <button id="login-btn" type="submit">
+              Войти
+            </button>
+          </form>
+        </div>
+        {open && <div className="overlay" />}
       </div>
     </div>
   );
