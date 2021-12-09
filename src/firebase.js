@@ -9,7 +9,7 @@ const config = {
   storageBucket: "udevs-blog-app.appspot.com",
   messagingSenderId: "484321375773",
   appId: "1:484321375773:web:5841a3ee32535f090e78f4",
-  measurementId: "${config.measurementId}",
+  // measurementId: "${config.measurementId}",
 };
 
 export const app = initializeApp(config);
