@@ -11,8 +11,9 @@ export default function BlogList() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);
-  const postsCollectionRef = collection(db, "posts");
+
   useEffect(() => {
+    const postsCollectionRef = collection(db, "posts");
     setLoading(true);
     function getPostsfromFirebase() {
       getDocs(postsCollectionRef).then((res) => {
