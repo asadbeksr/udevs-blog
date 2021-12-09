@@ -48,6 +48,8 @@ export default function SinglePost() {
                   />
                 </div>
               );
+            } else {
+              return false;
             }
           })}
         </div>
@@ -74,6 +76,8 @@ export default function SinglePost() {
                   <p className="p-body">{post.description}</p>
                 </div>
               );
+            } else {
+              return false;
             }
           })}
         </div>
