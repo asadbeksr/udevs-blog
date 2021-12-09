@@ -4,6 +4,8 @@
   object-fit: cover;
   width: 124px;
   height: 124px;
+  display: flex;
+  justify-content: center;
 }
 .border-wrap {
   margin-left: 20px;
@@ -36,7 +38,6 @@
   display: flex;
   border-radius: 50%;
   align-items: center;
-
   color: #fff;
   background-clip: padding-box;
   border: solid 8px #fff;
