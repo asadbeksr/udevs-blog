@@ -11,6 +11,7 @@ export default function BestPosts() {
         src={SingleBlogPic3}
         alt="blog-pic"
         effect="opacity"
+        delayTime="1000"
       />
       <div className="single-post-info">
         <h2 className="single-blog-title">

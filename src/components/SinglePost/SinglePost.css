@@ -12,14 +12,23 @@
 }
 .single-post-pic {
   max-width: 100%;
-  display: block;
-  height: auto;
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
 }
 .best-single-blog-img {
   width: 105px;
   height: 100px;
-
+  object-fit: cover;
   border-radius: 8px;
+}
+
+@media screen and (min-width: 1500px) {
+  .single-post-pic {
+    max-width: 869px;
+    width: auto;
+    border-radius: 8px;
+  }
 }
 .best-posts-wrap {
   display: flex !important;
