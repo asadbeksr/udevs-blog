@@ -73,7 +73,7 @@ export default function Header() {
             <FontAwesomeIcon icon={faTimes} />
           </button>
           <h1>Вход на udevs news</h1>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} autoComplete="off">
             <input
               onChange={(event) => setEmail(event.target.value)}
               type="text"
@@ -85,6 +85,7 @@ export default function Header() {
               type="password"
               name="password"
               placeholder="Пароль"
+              autoComplete="on"
             />
             <button id="login-btn" type="submit">
               Войти
