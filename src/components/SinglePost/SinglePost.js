@@ -33,6 +33,7 @@ export default function SinglePost() {
         });
     }
     getPostsfromFirebase(id);
+    // eslint-disable-next-line
   }, []);
 
   return (
