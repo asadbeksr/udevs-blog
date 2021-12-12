@@ -10,8 +10,11 @@ export default function BlogListItem(props) {
     <div className="single-blog-wrap">
       <Link to={`/post/${props.id}`}>
         <LazyLoadImage
+          height={300}
+          offset={100}
+          once
           src={props.src}
-          placeholderSrc="https://media1.giphy.com/media/L05HgB2h6qICDs5Sms/giphy.gif?cid=790b7611bbb29be2d1f535856c955c8c7eb7d0648c981846&rid=giphy.gif&ct=s"
+          placeholderSrc="https://gifimage.net/wp-content/uploads/2017/08/spinner-gif-8.gif"
           className="single-blog-img"
           alt="blog-pic"
           delayTime="1000"

@@ -26,6 +26,7 @@ a:hover {
   font-size: 18px;
 }
 .single-blog-img {
+  background-color: #aebec9;
   width: 350px;
   height: 300px;
   border-radius: 8px;
