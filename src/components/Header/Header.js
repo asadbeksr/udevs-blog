@@ -1,31 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import UdevsLogo from "../../assets/udevs-logo.svg";
 import Notifications from "../../assets/notifications.svg";
 import CountNot from "../../assets/num1.svg";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import Sign from "../Register/Sign";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const isAuthorized = localStorage.getItem("isAuthorized");
+  // const [open, setOpen] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const isAuthorized = localStorage.getItem("isAuthorized");
 
-  function onSubmit(event) {
-    event.preventDefault();
-    const key = {
-      email: "udevs@gmail.com",
-      password: "udevs",
-    };
-    if (key.email === email && key.password === password) {
-      localStorage.setItem("isAuthorized", true);
-      setOpen(false);
-    } else {
-      alert("Incorrect Password or Email");
-    }
-  }
+  // function onSubmit(event) {
+  //   event.preventDefault();
+  //   const key = {
+  //     email: "udevs@gmail.com",
+  //     password: "udevs",
+  //   };
+  //   if (key.email === email && key.password === password) {
+  //     localStorage.setItem("isAuthorized", true);
+  //     setOpen(false);
+  //   } else {
+  //     alert("Incorrect Password or Email");
+  //   }
+  // }
 
   return (
     <div className="header">
@@ -51,7 +50,7 @@ export default function Header() {
             width="28"
             alt="new-notification-icon"
           />
-          {isAuthorized && (
+          {/* {isAuthorized && (
             <button
               onClick={() => {
                 localStorage.removeItem("isAuthorized");
@@ -92,7 +91,9 @@ export default function Header() {
             </button>
           </form>
         </div>
-        {open && <div className="overlay" />}
+        {open && <div className="overlay" />} */}
+          <Sign />
+        </div>
       </div>
     </div>
   );
