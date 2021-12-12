@@ -3,7 +3,7 @@ import "./SinglePost.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import BestPosts from "./aside/BestPosts";
 //Pics
 import ViewIcon from "../../assets/view-icon.svg";
@@ -14,44 +14,39 @@ import { db } from "../../firebase";
 import { collection, getDocs } from "@firebase/firestore";
 
 export default function SinglePost() {
-  const [posts, setPosts] = useState([]);
   const { id } = useParams();
+  const [posts, setPosts] = useState([]);
   const postsCollectionRef = collection(db, "posts");
+
   useEffect(() => {
-    function getPostsfromFirebase() {
+    function getPostsfromFirebase(id) {
       getDocs(postsCollectionRef)
         .then((res) => {
-          setPosts(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+          res.docs.forEach((doc) => {
+            if (id === doc.id) {
+              setPosts(doc.data());
+            }
+          });
         })
         .catch((err) => {
           console.log(err);
         });
     }
-    getPostsfromFirebase();
-  });
+    getPostsfromFirebase(id);
+  }, []);
 
   return (
     <div className="single-post-wrap">
       <Profile />
       <div className="main-post">
         <div>
-          {posts.map((post) => {
-            if (post.id === id) {
-              return (
-                <div key={post.id}>
-                  <LazyLoadImage
-                    src={post.image}
-                    alt="single-post-pic"
-                    className="single-post-pic"
-                    effect="opacity"
-                    delayTime="1000"
-                  />
-                </div>
-              );
-            } else {
-              return false;
-            }
-          })}
+          <LazyLoadImage
+            src={posts.image}
+            alt="single-post-pic"
+            className="single-post-pic"
+            effect="opacity"
+            delayTime="1000"
+          />
         </div>
 
         <p className="photo-by">Фото: Dilorom Alieva</p>
@@ -68,18 +63,10 @@ export default function SinglePost() {
           </span>
         </div>
         <div>
-          {posts.map((post) => {
-            if (post.id === id) {
-              return (
-                <div>
-                  <h1 className="main-post-title">{post.title}</h1>
-                  <p className="p-body">{post.description}</p>
-                </div>
-              );
-            } else {
-              return false;
-            }
-          })}
+          <div>
+            <h1 className="main-post-title">{posts.title}</h1>
+            <p className="p-body">{posts.description}</p>
+          </div>
         </div>
       </div>
       <div className="best-posts-wrap">
