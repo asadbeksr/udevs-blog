@@ -1,13 +1,13 @@
 import "../App.css";
 import React from "react";
-import SinglePost from "../components/SinglePost/SinglePost";
+import Publish from "../components/Publish/Publish";
 
 export default function Blogs() {
   return (
     <div>
       <>
         <div className="app-wrap">
-          <SinglePost />
+          <Publish />
         </div>
       </>
     </div>
