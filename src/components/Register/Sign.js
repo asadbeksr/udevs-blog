@@ -105,7 +105,6 @@ export default function Login() {
           <form className="form" onSubmit={onSubmit}>
             <input
               onChange={(e) => setLoginEmail(e.target.value)}
-              className="input email"
               type="text"
               placeholder="Email"
             />
@@ -113,7 +112,6 @@ export default function Login() {
               onChange={(e) => {
                 setLoginPass(e.target.value);
               }}
-              className="input pass"
               type="password"
               placeholder="Пароль"
             />
@@ -142,13 +140,11 @@ export default function Login() {
           <form className="form" onSubmit={onSubmit}>
             <input
               onChange={(e) => setRegisterEmail(e.target.value)}
-              className="input email"
               type="text"
               placeholder="Email"
             />
             <input
               onChange={(e) => setRegisterPass(e.target.value)}
-              className="input pass"
               type="password"
               placeholder="Пароль"
             />
