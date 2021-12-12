@@ -1,0 +1,44 @@
+.publish_wrap {
+  margin-top: 40px;
+}
+.publish_wrap h3 {
+  margin-top: 45px;
+  color: #48535b;
+}
+.title_input,
+.body_input {
+  color: #303940;
+  width: 60%;
+  outline: none;
+  border: 1px solid rgb(231, 231, 231);
+  font-size: 16px;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+  resize: vertical;
+}
+.body_input {
+  height: 400px;
+}
+
+@media screen and (max-width: 700px) {
+  .title_input,
+  .body_input {
+    width: 90%;
+  }
+}
+.post_btn {
+  font-size: 18px;
+  margin-top: 15px;
+  align-self: flex-end;
+  background-color: #1b5bf7;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.post_btn:active {
+  background-color: #ffffff;
+  color: #1b5bf7;
+  border: 2px solid #1b5bf7;
+}
