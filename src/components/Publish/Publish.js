@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import style from "./Publish.module.css";
 import { db } from "../../firebase";
 import { collection, addDoc } from "@firebase/firestore";
+import { Link } from "react-router-dom";
 
 export default function Publish() {
   const postsCollectionRef = collection(db, "posts");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
+
+  const [redirect, setRedirect] = useState(false);
 
   const PublishPost = async (e) => {
     e.preventDefault();
@@ -17,6 +20,7 @@ export default function Publish() {
       image: image,
     });
     console.log(postsCollectionRef);
+    setRedirect(true);
   };
 
   return (
@@ -48,6 +52,15 @@ export default function Publish() {
           Post
         </button>
       </div>
+      {redirect && (
+        <div style={{ marginTop: "40px" }}>
+          <h1>
+            <Link style={{ color: "#1b5bf7" }} to="/">
+              Back Home{" "}
+            </Link>
+          </h1>
+        </div>
+      )}
     </div>
   );
 }
