@@ -2,7 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-
+import prfoilePic from "../../assets/ProfilePic.png";
+import style from "./Sign.module.css";
+import { Link } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -20,55 +22,51 @@ export default function Login() {
   const [registerPass, setRegisterPass] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPass, setLoginPass] = useState("");
+  //local storage
+  // const isAuthorized = localStorage.getItem("isAuthorized");
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
 
-  async function registerHandler() {
+  // Regiter
+  async function registerUser() {
     try {
-      // eslint-disable-next-line
       const user = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPass
       );
+      console.log(user);
       setRegIsOpen(false);
+      setIsLogged(true);
+      localStorage.setItem("isAuthorized", true);
     } catch (error) {
       console.log(error.message);
       alert(error.message);
     }
   }
-
-  async function loginHandler() {
+  //Login
+  async function loginUser() {
     try {
-      // eslint-disable-next-line
       const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPass
       );
-      closeHandler();
+      console.log(user);
+      setIsOpen(false);
       setIsLogged(true);
+      localStorage.setItem("isAuthorized", true);
     } catch (error) {
       console.log(error.message);
       alert(error.message);
     }
   }
-
-  async function logoutHandler() {
+  //Log Out
+  async function logoutUser() {
     await signOut(auth);
-  }
-
-  function modalHandler() {
-    setIsOpen(true);
-  }
-  function regModalHandler() {
-    setRegIsOpen(true);
-  }
-
-  function closeHandler() {
-    setIsOpen(false);
+    localStorage.removeItem("isAuthorized");
   }
 
   function onSubmit(e) {
@@ -78,17 +76,38 @@ export default function Login() {
   return (
     <div>
       {User && !IsLogged && (
-        <button onClick={modalHandler} className="login-btn">
+        <button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+          className="login-btn"
+        >
           Войти
         </button>
       )}
       {User && IsLogged && (
-        <button onClick={logoutHandler} className="logout-btn">
-          Выйти
-        </button>
+        <div className="logged-in-wrap">
+          <div className={style.dropdown}>
+            <img src={prfoilePic} alt="profile-pic" className="profile-img" />
+            <div className={style.dropdown_items}>
+              <Link to="/profile">{User.email}</Link>
+              <Link to="/"> Все публикации</Link>
+              <Link to="/publish">Написать публикацию</Link>
+              <Link to="/">Избранные</Link>
+              <Link onClick={logoutUser} to="/">
+                Выйти
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
       {!User && (
-        <button onClick={regModalHandler} className="register-btn">
+        <button
+          onClick={() => {
+            setRegIsOpen(true);
+          }}
+          className="register-btn"
+        >
           Регистрация
         </button>
       )}
@@ -115,7 +134,7 @@ export default function Login() {
               type="password"
               placeholder="Пароль"
             />
-            <button className="login-btn" type="submit" onClick={loginHandler}>
+            <button className="login-btn" type="submit" onClick={loginUser}>
               Войти
             </button>
             <button
@@ -128,7 +147,14 @@ export default function Login() {
             </button>
           </form>
         </div>
-        {IsOpen && <div onClick={closeHandler} className="overlay" />}
+        {IsOpen && (
+          <div
+            onClick={() => {
+              setIsOpen(false);
+            }}
+            className="overlay"
+          />
+        )}
       </div>
 
       <div>
@@ -148,7 +174,7 @@ export default function Login() {
               type="password"
               placeholder="Пароль"
             />
-            <button onClick={registerHandler} className="login-btn">
+            <button onClick={registerUser} className="login-btn">
               Регистрация
             </button>
             <button
@@ -161,7 +187,14 @@ export default function Login() {
             </button>
           </form>
         </div>
-        {IsRegOpen && <div onClick={closeHandler} className="overlay" />}
+        {IsRegOpen && (
+          <div
+            onClick={() => {
+              setIsOpen(false);
+            }}
+            className="overlay"
+          />
+        )}
       </div>
     </div>
   );
