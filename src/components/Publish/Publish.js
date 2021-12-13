@@ -14,13 +14,17 @@ export default function Publish() {
 
   const PublishPost = async (e) => {
     e.preventDefault();
-    await addDoc(postsCollectionRef, {
-      title: title,
-      description: body,
-      image: image,
-    });
-    console.log(postsCollectionRef);
-    setRedirect(true);
+    if (!title || !body || !image) {
+      alert("Please fill all froms");
+    } else {
+      await addDoc(postsCollectionRef, {
+        title: title,
+        description: body,
+        image: image,
+      });
+      console.log(postsCollectionRef);
+      setRedirect(true);
+    }
   };
 
   return (
@@ -54,6 +58,9 @@ export default function Publish() {
       </div>
       {redirect && (
         <div style={{ marginTop: "40px" }}>
+          <h1 style={{ color: "#4fc922", marginBottom: "40px" }}>
+            Succesfully Published{" "}
+          </h1>
           <h1>
             <Link style={{ color: "#1b5bf7" }} to="/">
               Back Home{" "}
